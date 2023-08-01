@@ -3,19 +3,27 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Validators.AllValidators;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.JPasswordField;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.awt.event.ActionEvent;
 
 public class FarmerRegistrationPage extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField fullNameTextField;
+	private JTextField contactNoTextField;
+	private JTextField emailIdTextField;
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
@@ -85,20 +93,20 @@ public class FarmerRegistrationPage extends JFrame {
 		lblNewLabel_1_2.setBounds(492, 136, 69, 24);
 		panel.add(lblNewLabel_1_2);
 		
-		textField = new JTextField();
-		textField.setBounds(651, 68, 265, 19);
-		panel.add(textField);
-		textField.setColumns(10);
+		fullNameTextField = new JTextField();
+		fullNameTextField.setBounds(651, 68, 265, 19);
+		panel.add(fullNameTextField);
+		fullNameTextField.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(651, 106, 265, 19);
-		panel.add(textField_1);
+		contactNoTextField = new JTextField();
+		contactNoTextField.setColumns(10);
+		contactNoTextField.setBounds(651, 106, 265, 19);
+		panel.add(contactNoTextField);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(651, 135, 265, 19);
-		panel.add(textField_2);
+		emailIdTextField = new JTextField();
+		emailIdTextField.setColumns(10);
+		emailIdTextField.setBounds(651, 135, 265, 19);
+		panel.add(emailIdTextField);
 		
 		JLabel lblAddressDetails = new JLabel("Address Details");
 		lblAddressDetails.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -205,7 +213,65 @@ public class FarmerRegistrationPage extends JFrame {
 		lblNewLabel_1_3_1_2_2_2.setBounds(462, 593, 134, 24);
 		panel.add(lblNewLabel_1_3_1_2_2_2);
 		
+		
+		//for valid name
+		JLabel ErrNameMsg = new JLabel("Enter Valid Name");
+		ErrNameMsg.setForeground(new Color(255, 0, 0));
+		ErrNameMsg.setBounds(956, 68, 208, 14);
+		panel.add(ErrNameMsg);
+		ErrNameMsg.setVisible(false);
+		
+		//for valid contact
+		JLabel ErrMsgForContact = new JLabel("Enter Valid Contact Number");
+		ErrMsgForContact.setForeground(new Color(255, 0, 0));
+		ErrMsgForContact.setBounds(956, 108, 192, 14);
+		panel.add(ErrMsgForContact);
+		ErrMsgForContact.setVisible(false);
+		
+		//for valid email
+		JLabel ErrMsgForEmail = new JLabel("Enter Valid Email ID");
+		ErrMsgForEmail.setForeground(new Color(255, 0, 0));
+		ErrMsgForEmail.setBounds(956, 136, 114, 14);
+		panel.add(ErrMsgForEmail);
+		ErrMsgForEmail.setVisible(false);
+		
+		
 		JButton btnNewButton = new JButton("Register");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				if(!AllValidators.isValidFullName(fullNameTextField.getText()))
+				{
+					ErrNameMsg.setVisible(true);
+				}
+				if(!AllValidators.isValidContactNumber(contactNoTextField.getText())) {
+					ErrMsgForContact.setVisible(true);
+				}
+			    if(!AllValidators.isValidEmail(emailIdTextField.getText())) {
+			    	ErrMsgForEmail.setVisible(true);
+			    }
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				try {
+					DriverManager.registerDriver(new org.hsqldb.jdbc.JDBCDriver());
+					Connection conn =DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/xdb");
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			}
+		});
 		btnNewButton.setBackground(new Color(154, 205, 50));
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnNewButton.setBounds(439, 641, 112, 36);
@@ -224,6 +290,11 @@ public class FarmerRegistrationPage extends JFrame {
 		passwordField_1 = new JPasswordField();
 		passwordField_1.setBounds(651, 591, 265, 20);
 		panel.add(passwordField_1);
-	}
+		
+		
+		
+		
+		
 
+	}
 }

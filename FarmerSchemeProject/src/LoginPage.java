@@ -95,7 +95,7 @@ public class LoginPage extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			
 		
-				if(!AllValidators.validateEmail(textFieldForEmail.getText())) {
+				if(!AllValidators.isValidEmail(textFieldForEmail.getText())) {
 
 					System.out.println("Invalid email");
 					ErrMsgForEmail.setVisible(true);
