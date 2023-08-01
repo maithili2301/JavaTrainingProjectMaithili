@@ -244,12 +244,23 @@ public class FarmerRegistrationPage extends JFrame {
 				if(!AllValidators.isValidFullName(fullNameTextField.getText()))
 				{
 					ErrNameMsg.setVisible(true);
+					fullNameTextField.setText("");
+				}
+				else {
+					ErrNameMsg.setVisible(false);
 				}
 				if(!AllValidators.isValidContactNumber(contactNoTextField.getText())) {
 					ErrMsgForContact.setVisible(true);
+					contactNoTextField.setText("");
+					
+				}else {
+					ErrMsgForContact.setVisible(false);
 				}
 			    if(!AllValidators.isValidEmail(emailIdTextField.getText())) {
 			    	ErrMsgForEmail.setVisible(true);
+			    	emailIdTextField.setText("");
+			    }else {
+			    	ErrMsgForEmail.setVisible(false);
 			    }
 				
 				
