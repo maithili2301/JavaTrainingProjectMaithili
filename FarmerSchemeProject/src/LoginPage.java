@@ -12,6 +12,9 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+
+import Validators.*;
+
 public class LoginPage extends JFrame {
 
 	private JPanel contentPane;
@@ -72,20 +75,6 @@ public class LoginPage extends JFrame {
 		textFieldForEmail.setColumns(10);
 		
 		
-		
-		EmailValidator emailValidator=new EmailValidator();
-		if(EmailValidator.validateEmail(textFieldForEmail.getText())) {
-			JLabel ErrMsgForEmail = new JLabel("");
-			ErrMsgForEmail.setBounds(995, 166, 105, 13);
-			panel.add(ErrMsgForEmail);
-		}else {
-			JLabel ErrMsgForEmail = new JLabel("Enter Valid Email Id");
-			ErrMsgForEmail.setForeground(Color.red);
-			ErrMsgForEmail.setBounds(995, 166, 65, 13);
-			panel.add(ErrMsgForEmail);
-		}
-		
-		
 		JLabel lblNewLabel_2 = new JLabel("Password");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 22));
 		lblNewLabel_2.setBounds(365, 235, 206, 32);
@@ -95,10 +84,31 @@ public class LoginPage extends JFrame {
 		passwordField.setBounds(586, 235, 383, 32);
 		panel.add(passwordField);
 		
+		JLabel ErrMsgForEmail = new JLabel("Enter Valid Email Id");
+		ErrMsgForEmail.setForeground(Color.red);
+		ErrMsgForEmail.setBounds(995, 166, 155, 13);
+		panel.add(ErrMsgForEmail);
+		ErrMsgForEmail.setVisible(false);
 		JButton btnNewButton = new JButton("Login");
+		
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+		
+				if(!AllValidators.validateEmail(textFieldForEmail.getText())) {
+
+					System.out.println("Invalid email");
+					ErrMsgForEmail.setVisible(true);
+					textFieldForEmail.setText("");
+				}
+				
+				
+			}
+		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 18));
 		btnNewButton.setBounds(412, 316, 159, 49);
 		panel.add(btnNewButton);
+		
 		
 		JButton btnCancel = new JButton("cancel");
 		btnCancel.setFont(new Font("Tahoma", Font.BOLD, 18));
