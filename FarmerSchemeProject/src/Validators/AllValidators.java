@@ -38,6 +38,11 @@ public class AllValidators {
 	        Matcher matcher = pattern.matcher(fullName);
 	        return matcher.matches();
 	    }
+	    public static boolean isValidCityName(String fullName) {
+	        Pattern pattern = Pattern.compile(FULLNAME_PATTERN);
+	        Matcher matcher = pattern.matcher(fullName);
+	        return matcher.matches();
+	    }
 
 	    public static boolean isValidPassword(String password) {
 	        Pattern pattern = Pattern.compile(PASSWORD_PATTERN);

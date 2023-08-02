@@ -143,6 +143,8 @@ public class FarmerRegistrationPage extends JFrame {
 		textField_4.setBounds(651, 266, 265, 19);
 		panel.add(textField_4);
 		
+		
+		
 		textField_5 = new JTextField();
 		textField_5.setColumns(10);
 		textField_5.setBounds(651, 295, 265, 19);
@@ -235,6 +237,20 @@ public class FarmerRegistrationPage extends JFrame {
 		panel.add(ErrMsgForEmail);
 		ErrMsgForEmail.setVisible(false);
 		
+		//for valid city
+		JLabel lblNewLabel_2 = new JLabel("Enter Valid City Name");
+		lblNewLabel_2.setForeground(new Color(255, 0, 0));
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblNewLabel_2.setBounds(970, 268, 114, 14);
+		panel.add(lblNewLabel_2);
+		lblNewLabel_2.setVisible(false);
+		
+		//for valid account number
+		JLabel lblNewLabel_3 = new JLabel("Enter Valid Account Number");
+		lblNewLabel_3.setForeground(new Color(255, 0, 0));
+		lblNewLabel_3.setBounds(970, 399, 144, 14);
+		panel.add(lblNewLabel_3);
+		lblNewLabel_3.setVisible(false);
 		
 		JButton btnNewButton = new JButton("Register");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -262,7 +278,18 @@ public class FarmerRegistrationPage extends JFrame {
 			    }else {
 			    	ErrMsgForEmail.setVisible(false);
 			    }
-				
+				if(!AllValidators.isValidCityName(textField_4.getText())) {
+					lblNewLabel_2.setVisible(true);
+					textField_4.setText("");
+				}else {
+					lblNewLabel_2.setVisible(false);
+				}
+				if(!AllValidators.isValidAccountNumber(textField_7.getText())) {
+					lblNewLabel_3.setVisible(true);
+					textField_7.setText("");
+				}else {
+					lblNewLabel_3.setVisible(false);
+				}
 				
 				
 				
@@ -301,6 +328,10 @@ public class FarmerRegistrationPage extends JFrame {
 		passwordField_1 = new JPasswordField();
 		passwordField_1.setBounds(651, 591, 265, 20);
 		panel.add(passwordField_1);
+		
+	
+		
+		
 		
 		
 		
