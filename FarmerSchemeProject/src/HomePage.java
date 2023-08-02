@@ -49,7 +49,7 @@ public class HomePage extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\maith\\git\\JavaTrainingProjectMaithili\\IMAGES\\homePageCover.jpg"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\MHR18\\git\\JavaTrainingProjectMaithili\\FarmerSchemeProject\\src\\IMAGES\\homePageCover.jpg"));
 		lblNewLabel.setBounds(0, 110, 1204, 494);
 		contentPane.add(lblNewLabel);
 		
@@ -60,12 +60,12 @@ public class HomePage extends JFrame {
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\maith\\git\\JavaTrainingProjectMaithili\\IMAGES\\logo1.jpg"));
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\MHR18\\Documents\\workspace-spring-tool-suite-4-4.19.0.RELEASE\\FarmerSchemeProject\\IMAGES\\logo1.jpg"));
 		lblNewLabel_1.setBounds(10, 10, 78, 69);
 		panel.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\maith\\git\\JavaTrainingProjectMaithili\\IMAGES\\logo1.jpg"));
+		lblNewLabel_2.setIcon(new ImageIcon("file:///C:/Users/MHR18/git/JavaTrainingProjectMaithili/FarmerSchemeProject/src/IMAGES/logo1.jpg"));
 		lblNewLabel_2.setBounds(10, 0, 90, 100);
 		panel.add(lblNewLabel_2);
 		

@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
+
 import java.awt.Color;
 import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
@@ -30,8 +32,6 @@ public class FarmerRegistrationPage extends JFrame {
 	private JTextField textField_6;
 	private JTextField textField_7;
 	private JTextField textField_8;
-	private JTextField textField_9;
-	private JTextField textField_10;
 	private JPasswordField passwordField;
 	private JPasswordField passwordField_1;
 
@@ -93,9 +93,15 @@ public class FarmerRegistrationPage extends JFrame {
 		lblNewLabel_1_2.setBounds(492, 136, 69, 24);
 		panel.add(lblNewLabel_1_2);
 		
-		fullNameTextField = new JTextField();
+		JTextField fullNameTextField = new JTextField();
 		fullNameTextField.setBounds(651, 68, 265, 19);
+//		fullNameTextField.setRequired(true);
+//		fullNameTextField.addActionListener();
+		fullNameTextField.addKeyListener(null);
 		panel.add(fullNameTextField);
+		
+//		fullNameTextField.setRequired(true);
+//		fullNameTextField.setRe
 		fullNameTextField.setColumns(10);
 		
 		contactNoTextField = new JTextField();
@@ -195,15 +201,6 @@ public class FarmerRegistrationPage extends JFrame {
 		lblDocuments.setBounds(595, 451, 144, 30);
 		panel.add(lblDocuments);
 		
-		textField_9 = new JTextField();
-		textField_9.setColumns(10);
-		textField_9.setBounds(651, 491, 265, 19);
-		panel.add(textField_9);
-		
-		textField_10 = new JTextField();
-		textField_10.setColumns(10);
-		textField_10.setBounds(651, 520, 265, 19);
-		panel.add(textField_10);
 		
 		JLabel lblNewLabel_1_3_1_2_2_1 = new JLabel("Password");
 		lblNewLabel_1_3_1_2_2_1.setFont(new Font("Tahoma", Font.BOLD, 13));
@@ -328,6 +325,30 @@ public class FarmerRegistrationPage extends JFrame {
 		passwordField_1 = new JPasswordField();
 		passwordField_1.setBounds(651, 591, 265, 20);
 		panel.add(passwordField_1);
+		
+		JButton btnNewButton_1 = new JButton("Choose File");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFileChooser filechooser=new JFileChooser();
+				filechooser.showSaveDialog(null);
+				btnNewButton_1.setText(filechooser.getSelectedFile().getName());
+			}
+		});
+		btnNewButton_1.setBackground(new Color(255, 255, 255));
+		btnNewButton_1.setBounds(651, 494, 265, 21);
+		panel.add(btnNewButton_1);
+		
+		JButton btnNewButton_1_1 = new JButton("Choose File");
+		btnNewButton_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFileChooser filechooser=new JFileChooser();
+				filechooser.showSaveDialog(null);
+				btnNewButton_1_1.setText(filechooser.getSelectedFile().getName());
+			}
+		});
+		btnNewButton_1_1.setBackground(Color.WHITE);
+		btnNewButton_1_1.setBounds(651, 528, 265, 21);
+		panel.add(btnNewButton_1_1);
 		
 	
 		
