@@ -1,11 +1,13 @@
 import java.awt.EventQueue;
-import com.farmer.entities.*;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import com.farmer.entities.FarmerDAOImplementation;
+import com.entities.*;
+import com.entities.farmer.FarmerDAO;
+import com.entities.farmer.FarmerDAOImplementation;
+import com.entities.farmer.FarmerEntity;
 
 import Validators.AllValidators;
 
@@ -219,19 +221,6 @@ public class FarmerRegistrationPage extends JFrame {
 		lblNewLabel_1_3_1_2_2_2.setBounds(462, 593, 134, 24);
 		panel.add(lblNewLabel_1_3_1_2_2_2);
 		
-		JButton btnReset = new JButton("Reset");
-		btnReset.setFont(new Font("Tahoma", Font.BOLD, 13));
-		btnReset.setBackground(new Color(255, 0, 0));
-		btnReset.setBounds(743, 641, 112, 36);
-		panel.add(btnReset);
-		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(651, 561, 265, 20);
-		panel.add(passwordField);
-		
-		passwordField_1 = new JPasswordField();
-		passwordField_1.setBounds(651, 591, 265, 20);
-		panel.add(passwordField_1);
 		
 		JButton btnNewButton_1 = new JButton("Choose File");
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -268,6 +257,55 @@ public class FarmerRegistrationPage extends JFrame {
 		btnNewButton_1_1.setBackground(Color.WHITE);
 		btnNewButton_1_1.setBounds(651, 528, 265, 21);
 		panel.add(btnNewButton_1_1);
+		
+		
+		JButton btnReset = new JButton("Reset");
+		btnReset.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				fullNameTextField.setText("");
+				contactNoTextField.setText("");
+				emailIdTextField.setText("");
+				textField_3.setText("");
+				textField_4.setText("");
+				textField_5.setText("");
+				textField_6.setText("");
+				textField_7.setText("");
+				textField_8.setText("");
+				btnNewButton_1.setText("");
+				btnNewButton_1_1.setText("");
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			}
+		});
+		btnReset.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btnReset.setBackground(new Color(255, 0, 0));
+		btnReset.setBounds(743, 641, 112, 36);
+		panel.add(btnReset);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(651, 561, 265, 20);
+		panel.add(passwordField);
+		
+		passwordField_1 = new JPasswordField();
+		passwordField_1.setBounds(651, 591, 265, 20);
+		panel.add(passwordField_1);
+		
+		
+		
+		
 		
 		
 		//for valid name
@@ -347,7 +385,7 @@ public class FarmerRegistrationPage extends JFrame {
 				
 				FarmerDAO farmerDAOObject=new FarmerDAOImplementation();
 				
-			FarmerEntity farmerEntityObj=new FarmerEntity(fullNameTextField.getText(),contactNoTextField.getText() , emailIdTextField.getText(), textField_3.getText(), textField_4.getText(), textField_5.getText(), textField_6.getText(), textField_7.getText(), textField_8.getText(), btnNewButton_1.getText(), btnNewButton_1_1.getText(),passwordField.getText());
+			    FarmerEntity farmerEntityObj=new FarmerEntity(fullNameTextField.getText(),contactNoTextField.getText() , emailIdTextField.getText(), textField_3.getText(), textField_4.getText(), textField_5.getText(), textField_6.getText(), textField_7.getText(), textField_8.getText(), btnNewButton_1.getText(), btnNewButton_1_1.getText(),passwordField.getText());
 //				
 //				
 				farmerDAOObject.insertFarmer(farmerEntityObj);

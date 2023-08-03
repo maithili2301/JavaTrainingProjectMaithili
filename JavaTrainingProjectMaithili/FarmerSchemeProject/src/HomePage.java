@@ -14,12 +14,13 @@ import java.awt.event.ActionEvent;
 public class HomePage extends JFrame {
 
 	private JPanel contentPane;
-
+	
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
+
 			public void run() {
 			try {
 				HomePage frame = new HomePage();
@@ -40,10 +41,14 @@ public class HomePage extends JFrame {
 	public HomePage() {
 	   initialize();
 	}
+	public HomePage(HomePage frame) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public void initialize() {
-		
+		HomePage home = this;
 	
-		 boolean visibleVal;
+		// boolean visibleVal;
 		 
 		 
 		 
@@ -88,14 +93,16 @@ public class HomePage extends JFrame {
 		
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent e) {
-				LoginPage loginPage=new LoginPage();
+				LoginPage loginPage=new LoginPage(home);
+				//btnLogin.setEnabled(false);
+				home.setVisible(false);
 				loginPage.setVisible(true);
-				
-				
-				
+			
 			}
 		});
+		
 		
 		btnLogin.setFont(new Font("Tahoma", Font.BOLD, 18));
 		btnLogin.setBounds(834, 26, 159, 53);

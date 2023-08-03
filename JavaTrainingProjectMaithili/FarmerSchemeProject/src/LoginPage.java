@@ -10,11 +10,13 @@ import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.awt.event.ActionEvent;
 
 import Validators.*;
 
-public class LoginPage extends JFrame {
+public class LoginPage extends JFrame implements WindowListener {
 
 	private JPanel contentPane;
 	private JTextField textFieldForEmail;
@@ -23,24 +25,31 @@ public class LoginPage extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					LoginPage frame = new LoginPage();
-					frame.setVisible(true);
+					//HomePage home;
+					//LoginPage frame = new LoginPage(home);
+					//frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the frame.
 	 */
-	public LoginPage() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	HomePage home;
+	
+	
+	
+	public LoginPage(HomePage home ) {
+		this.home=home;
+		this.addWindowListener(this);
+		//setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 1229, 692);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -197,5 +206,64 @@ public class LoginPage extends JFrame {
 		lblNewLabel_3_2_1.setBounds(763, 493, 138, 21);
 		panel.add(lblNewLabel_3_2_1);
 
+	}
+
+
+
+	@Override
+	public void windowOpened(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void windowClosing(WindowEvent e) {
+		// TODO Auto-generated method stub
+		System.out.println("login window closing");
+
+		this.home.setVisible(true);
+	}
+
+
+
+	@Override
+	public void windowClosed(WindowEvent e) {
+		// TODO Auto-generated method stub
+		System.out.println("login window closed");
+		this.home.setVisible(true);
+	}
+
+
+
+	@Override
+	public void windowIconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void windowActivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void windowDeactivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
